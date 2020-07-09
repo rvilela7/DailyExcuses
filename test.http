@@ -1,0 +1,2 @@
+//GET http://ptcitdevapp01/DailyExcuses/randomExcuse
+GET https://localhost:5001/randomExcuse
