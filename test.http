@@ -1,2 +1,9 @@
-//GET http://ptcitdevapp01/DailyExcuses/randomExcuse
-GET https://localhost:5001/randomExcuse
+GET https://dailyexcuses.azurewebsites.net/randomExcuse
+//GET https://localhost:5001/randomExcuse
+
+//POST https://dailyexcuses.azurewebsites.net/New
+#POST https://localhost:5001/New
+//POST https://dailyexcuses.azurewebsites.net/New
+//Content-Type: application/json
+
+//"Para a semana vejo-te isso!"
