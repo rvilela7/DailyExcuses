@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace DailyExcuses.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class RandomExcuse : ControllerBase
     {
         private string excusesFile = "excuses.txt";
@@ -18,7 +18,7 @@ namespace DailyExcuses.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("/")]
         public string Get()
         {
             string[] excuses = System.IO.File.ReadAllLines(excusesFile);
