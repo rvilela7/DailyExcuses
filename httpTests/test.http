@@ -1,4 +1,5 @@
-GET https://dailyexcuses.azurewebsites.net
+//GET https://dailyexcuses.azurewebsites.net
+OPTIONS https://localhost:5001
 //GET https://localhost:5001/randomExcuse
 
 //POST https://dailyexcuses.azurewebsites.net/New

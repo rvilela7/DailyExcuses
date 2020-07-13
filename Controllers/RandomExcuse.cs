@@ -43,5 +43,13 @@ namespace DailyExcuses.Controllers
             string[] excuses = System.IO.File.ReadAllLines(excusesFile);
             return excuses.ToList();
         }
+
+        // Needs CORS and OPTIONS set in startup
+
+        // [HttpOptions]
+        // public IActionResult GetOptions()
+        // {
+        //     return Ok();
+        // }
     }
 }
