@@ -20,3 +20,4 @@ Ok então faz restart ao laptop e volta a entrar
 eu nao fiz nada
 não posso porque não tenho acesso ao servidor
 mas já tinham acesso e deixaram de ter?
+É uma questão aplicacional e não mexemos em aplicações
