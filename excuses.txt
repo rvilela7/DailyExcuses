@@ -1,4 +1,4 @@
-Sim eu sei, tivemos a falar sobre o teu problema
+﻿Sim eu sei, tivemos a falar sobre o teu problema
 Se está relacionado com o ticket que ela criou, ainda não consegui agarrar nele
 Viva Rui vais ter de falar com o Help Desk
 mas quem é que te disse que era comigo?
@@ -23,3 +23,8 @@ mas já tinham acesso e deixaram de ter?
 É uma questão aplicacional e não mexemos em aplicações
 não, mas podem ser vocês a desenvolver
 sim, podes abrir um ticket
+Nesse aspecto já não te consigo ajudar
+É um problema de rede
+Tens de ver que nem todas as operações tem acesso aos mesmo liks existem restrições de rede / Firewall por cliente
+
+Não alteramos qualquer user sem indicação
