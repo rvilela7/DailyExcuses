@@ -1,4 +1,3 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/8995519b-b56a-4cde-ba6a-9005f04f22cc/resourceGroups/CoreTests/providers/Microsoft.Web/sites/DailyExcuses",
     "appService.deploySubpath": "publish"
 }

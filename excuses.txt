@@ -26,5 +26,9 @@ sim, podes abrir um ticket
 Nesse aspecto já não te consigo ajudar
 É um problema de rede
 Tens de ver que nem todas as operações tem acesso aos mesmo liks existem restrições de rede / Firewall por cliente
-
 Não alteramos qualquer user sem indicação
+ele entrou com que user?
+Pelo que vi o Rui não tem acesso a este servidor.
+se fosse eu a fazê-lo teria dito como é evidente ou a minha equipa
+mas vou desde já criar esses users
+Agora não te consigo dar feedback
