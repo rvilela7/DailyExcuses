@@ -12,3 +12,4 @@ inspired by some colleagues confined at home
 2. right click (extension azure app service) -> deploy to webapp
 
 
+### TODO Migrate .NET 5
