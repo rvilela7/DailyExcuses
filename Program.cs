@@ -21,7 +21,9 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = string.Empty;
 });
 
-app.UseHttpsRedirection();
+#if !DEBUG
+    app.UseHttpsRedirection();
+#endif
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

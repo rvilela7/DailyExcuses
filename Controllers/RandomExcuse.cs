@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-
 namespace DailyExcuses.Controllers
 {
     [ApiController]
-    // [Route("[controller]")]
+    [Route("[controller]")]
+    [AllowAnonymous]
     public class RandomExcuse : ControllerBase
     {
-        private string excusesFile = "excuses.txt";
+        private const string excusesFile = "excuses.txt";
         private readonly ILogger<RandomExcuse> _logger;
 
         public RandomExcuse(ILogger<RandomExcuse> logger)
@@ -40,10 +36,11 @@ namespace DailyExcuses.Controllers
         }
 
         [HttpGet("/list")]
+        [Produces("application/json")]
         public IActionResult GetList()
         {
             string[] excuses = System.IO.File.ReadAllLines(excusesFile);
-            return Ok(JsonConvert.SerializeObject(excuses.ToList()));
+            return Ok(new JsonResult(excuses));
         }
 
         // Needs CORS and OPTIONS set in startup
