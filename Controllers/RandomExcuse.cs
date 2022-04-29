@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
 namespace DailyExcuses.Controllers
 {
     [ApiController]
-    //[Route("[controller]")]
+    [Route("[controller]")]
+    [AllowAnonymous]
     public class RandomExcuse : ControllerBase
     {
-        private string excusesFile = "excuses.txt";
+        private const string excusesFile = "excuses.txt";
         private readonly ILogger<RandomExcuse> _logger;
 
         public RandomExcuse(ILogger<RandomExcuse> logger)
@@ -18,7 +15,7 @@ namespace DailyExcuses.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/")]
+        [HttpGet("/quote")]
         public string Get()
         {
             string[] excuses = System.IO.File.ReadAllLines(excusesFile);
@@ -27,7 +24,8 @@ namespace DailyExcuses.Controllers
             return excuses[i];
         }
 
-        [HttpPost("/New")]
+        [HttpPost("/new")]
+        [Obsolete("Simply don't use")]
         public IActionResult InsertNew([FromBody] string excuse)
         {   
             if (string.IsNullOrWhiteSpace(excuse))
@@ -37,11 +35,12 @@ namespace DailyExcuses.Controllers
             return Ok(excuse);
         }
 
-        [HttpGet("/List")]
-        public List<string> GetList()
+        [HttpGet("/list")]
+        [Produces("application/json")]
+        public IActionResult GetList()
         {
             string[] excuses = System.IO.File.ReadAllLines(excusesFile);
-            return excuses.ToList();
+            return Ok(new JsonResult(excuses));
         }
 
         // Needs CORS and OPTIONS set in startup
