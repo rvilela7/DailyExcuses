@@ -25,7 +25,7 @@ namespace DailyExcuses.Controllers
         }
 
         [HttpPost("/new")]
-        [Obsolete("Not really tested")]
+        [Obsolete("Simply don't use")]
         public IActionResult InsertNew([FromBody] string excuse)
         {   
             if (string.IsNullOrWhiteSpace(excuse))
