@@ -10,3 +10,5 @@ https://dailyexcuses.azurewebsites.net
 1. dotnet publish -c Release -o ./publish
 2. right click (extension azure app service) -> deploy to webapp
 
+## GitHub Actions
+
