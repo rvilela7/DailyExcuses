@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace DailyExcuses.Controllers
 {
     [ApiController]
-    //[Route("[controller]")]
+    // [Route("[controller]")]
     public class RandomExcuse : ControllerBase
     {
         private string excusesFile = "excuses.txt";
@@ -18,7 +19,7 @@ namespace DailyExcuses.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/")]
+        [HttpGet("/quote")]
         public string Get()
         {
             string[] excuses = System.IO.File.ReadAllLines(excusesFile);
@@ -27,7 +28,8 @@ namespace DailyExcuses.Controllers
             return excuses[i];
         }
 
-        [HttpPost("/New")]
+        [HttpPost("/new")]
+        [Obsolete("Not really tested")]
         public IActionResult InsertNew([FromBody] string excuse)
         {   
             if (string.IsNullOrWhiteSpace(excuse))
@@ -37,11 +39,11 @@ namespace DailyExcuses.Controllers
             return Ok(excuse);
         }
 
-        [HttpGet("/List")]
-        public List<string> GetList()
+        [HttpGet("/list")]
+        public IActionResult GetList()
         {
             string[] excuses = System.IO.File.ReadAllLines(excusesFile);
-            return excuses.ToList();
+            return Ok(JsonConvert.SerializeObject(excuses.ToList()));
         }
 
         // Needs CORS and OPTIONS set in startup
