@@ -8,6 +8,7 @@ https://dailyexcuses.azurewebsites.net
 # Azure deployment center
 
 - Configured in azure portal with Github repo 
+
 ## Azure publish (VS Code) (OLD)
 
 1. dotnet publish -c Release -o ./publish
