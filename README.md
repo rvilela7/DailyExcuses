@@ -13,6 +13,6 @@ https://dailyexcuses.azurewebsites.net
 
 1. dotnet publish -c Release -o ./publish
 2. right click (extension azure app service) -> deploy to webapp
-
+ 
 
 [![CodeFactor](https://www.codefactor.io/repository/github/rvilela7/dailyexcuses/badge)](https://www.codefactor.io/repository/github/rvilela7/dailyexcuses)
