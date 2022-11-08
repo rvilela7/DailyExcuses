@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace DailyExcuses.Controllers
 {
@@ -16,6 +17,7 @@ namespace DailyExcuses.Controllers
         }
 
         [HttpGet("/quote")]
+        [HttpGet("/excuses")]
         public string Get()
         {
             string[] excuses = System.IO.File.ReadAllLines(excusesFile);
@@ -25,9 +27,14 @@ namespace DailyExcuses.Controllers
         }
 
         [HttpPost("/new")]
-        [Obsolete("Simply don't use")]
+        [Obsolete("This method is obsolete.")]
         public IActionResult InsertNew([FromBody] string excuse)
         {   
+            if (!Debugger.IsAttached)
+            {
+                throw new NotImplementedException("Unavailable in production");
+            }
+
             if (string.IsNullOrWhiteSpace(excuse))
                 return BadRequest("Requires valid excuse!");
 
