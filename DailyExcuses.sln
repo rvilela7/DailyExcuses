@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DailyExcuses", "DailyExcuses.csproj", "{833FE554-05D1-4E24-9370-7E73F7A0FED0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DailyExcuses", "DailyExcuses\DailyExcuses.csproj", "{833FE554-05D1-4E24-9370-7E73F7A0FED0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyExcuses.Tests", "DailyExcuses.Tests\DailyExcuses.Tests.csproj", "{3412E16E-1DE1-47FF-940D-F4FCEAD13754}"
 EndProject

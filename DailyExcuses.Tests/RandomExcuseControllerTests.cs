@@ -7,6 +7,7 @@ namespace DailyExcuses.Tests
     public class RandomExcuseControllerTests
     {
         private RestClient _client;
+        private const int OK = 200;
 
         [SetUp]
         public void Setup()
@@ -20,7 +21,7 @@ namespace DailyExcuses.Tests
             var request = new RestRequest("/quote");
             var response = _client.Get(request);
 
-            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.That((int)response.StatusCode, Is.EqualTo(OK));
         }
 
         [Test]
@@ -29,7 +30,7 @@ namespace DailyExcuses.Tests
             var request = new RestRequest("/quote?lang=pt");
             var response = _client.Get(request);
 
-            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.That((int)response.StatusCode, Is.EqualTo(OK));
         }
 
         [Test]
@@ -38,7 +39,7 @@ namespace DailyExcuses.Tests
             var request = new RestRequest("/wymowka");
             var response = _client.Get(request);
 
-            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.That((int)response.StatusCode, Is.EqualTo(OK));
         }
 
         [Test]
@@ -47,7 +48,7 @@ namespace DailyExcuses.Tests
             var request = new RestRequest("/escusa");
             var response = _client.Get(request);
 
-            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.That((int)response.StatusCode, Is.EqualTo(OK));
         }
 
         [Test]
@@ -56,7 +57,7 @@ namespace DailyExcuses.Tests
             var request = new RestRequest("/excuse");
             var response = _client.Get(request);
 
-            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.That((int)response.StatusCode, Is.EqualTo(OK));
         }
 
         [Test]
@@ -67,7 +68,7 @@ namespace DailyExcuses.Tests
             request.AddParameter("application/json", "Test excuse", ParameterType.RequestBody);
             var response = _client.Execute(request);
 
-            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.That((int)response.StatusCode, Is.EqualTo(OK));
         }
 
         [Test]
@@ -76,7 +77,7 @@ namespace DailyExcuses.Tests
             var request = new RestRequest("/list");
             var response = _client.Get(request);
 
-            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.That((int)response.StatusCode, Is.EqualTo(OK));
         }
 
         [Test]
@@ -85,7 +86,7 @@ namespace DailyExcuses.Tests
             var request = new RestRequest("/list?lang=pl");
             var response = _client.Get(request);
 
-            Assert.AreEqual(200, (int)response.StatusCode);
+            Assert.That((int)response.StatusCode, Is.EqualTo(OK));
         }
     }
 }
