@@ -24,9 +24,9 @@ public class RandomExcuse : ControllerBase
     /// <returns>Random excuse</returns>
     [HttpGet("/quote")]
     [HttpGet("/excuse")]
-    public string Get(string lang = "en")
+    public string GetQuote(string? lang)
     {
-        string[] excuses = getExcuses(lang);
+        string[] excuses = getExcuses(lang ?? "en");
         Random rnd = new Random();
         int i = rnd.Next(excuses.Count());
         return excuses[i];
@@ -55,29 +55,19 @@ public class RandomExcuse : ControllerBase
     /// <returns>List of available excuses.</returns>
     [HttpGet("/list")]
     [Produces("application/json")]
-    public IActionResult GetList(string lang = "en")
+    public IActionResult GetList(string? lang)
     {
-        string[] excuses = getExcuses(lang);
+        string[] excuses = getExcuses(lang ?? "en");
         return Ok(new JsonResult(excuses));
     }
 
     private string[] getExcuses(string lang)
     {
-        switch (lang)
+        return lang switch
         {
-            case "pt":
-                return System.IO.File.ReadAllLines(excusesPTFile);
-            default:
-                return System.IO.File.ReadAllLines(excusesENFile);
-        }
+            "pt" => System.IO.File.ReadAllLines(excusesPTFile),
+            _ => System.IO.File.ReadAllLines(excusesENFile),
+        };
     }
-
-    // Needs CORS and OPTIONS set in startup
-
-    // [HttpOptions]
-    // public IActionResult GetOptions()
-    // {
-    //     return Ok();
-    // }
 }
 
