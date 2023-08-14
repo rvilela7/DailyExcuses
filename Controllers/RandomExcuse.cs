@@ -8,8 +8,8 @@ namespace DailyExcuses.Controllers;
 [AllowAnonymous]
 public class RandomExcuse : ControllerBase
 {
-    private const string excusesENFile = "excusesEN.txt";
-    private const string excusesPTFile = "excusesPT.txt";
+    private const string excusesENFile = "data/excusesEN.txt";
+    private const string excusesPTFile = "data/excusesPT.txt";
     private readonly ILogger<RandomExcuse> _logger;
 
     public RandomExcuse(ILogger<RandomExcuse> logger)
@@ -17,8 +17,13 @@ public class RandomExcuse : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Returns a ramdom excuse
+    /// </summary>
+    /// <param name="lang">Language code: 'en' for English, 'pt' for Portuguese.</param>
+    /// <returns>Random excuse</returns>
     [HttpGet("/quote")]
-    [HttpGet("/excuses")]
+    [HttpGet("/excuse")]
     public string Get(string lang = "en")
     {
         string[] excuses = getExcuses(lang);
@@ -43,6 +48,11 @@ public class RandomExcuse : ControllerBase
         return Ok(excuse);
     }
 
+    /// <summary>
+    /// Get the list of available excuses in the specified language.
+    /// </summary>
+    /// <param name="language">Language code: 'en' for English, 'pt' for Portuguese.</param>
+    /// <returns>List of available excuses.</returns>
     [HttpGet("/list")]
     [Produces("application/json")]
     public IActionResult GetList(string lang = "en")
