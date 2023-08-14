@@ -1,6 +1,12 @@
 # GET https://dailyexcuses.azurewebsites.net/list
 
-GET https://localhost:5001/randomExcuse/list
+#GET https://localhost:5001/randomExcuse/list
+
+#GET https://dailyexcuses.azurewebsites.net/escusa
+
+#GET https://dailyexcuses.azurewebsites.net/list?lang=pl
+
+GET https://dailyexcuses.azurewebsites.net/quote?lang=pt
 
 //POST https://dailyexcuses.azurewebsites.net/New
 #POST https://localhost:5001/New

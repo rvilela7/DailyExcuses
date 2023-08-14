@@ -42,7 +42,7 @@ public class RandomExcuse : ControllerBase
     /// Same as /quote?lang=pt
     /// </summary>
     [HttpGet("/escusa")]
-    public string escusa() => GetQuote("en");
+    public string escusa() => GetQuote("pt");
 
     /// <summary>
     /// Same as /quote?lang=pl
