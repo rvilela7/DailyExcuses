@@ -8,7 +8,8 @@ namespace DailyExcuses.Controllers;
 [AllowAnonymous]
 public class RandomExcuse : ControllerBase
 {
-    private const string excusesFile = "excuses.txt";
+    private const string excusesENFile = "excusesEN.txt";
+    private const string excusesPTFile = "excusesPT.txt";
     private readonly ILogger<RandomExcuse> _logger;
 
     public RandomExcuse(ILogger<RandomExcuse> logger)
@@ -20,7 +21,7 @@ public class RandomExcuse : ControllerBase
     [HttpGet("/excuses")]
     public string Get()
     {
-        string[] excuses = System.IO.File.ReadAllLines(excusesFile);
+        string[] excuses = System.IO.File.ReadAllLines(excusesPTFile);
         Random rnd = new Random();
         int i = rnd.Next(excuses.Count());
         return excuses[i];
@@ -38,7 +39,7 @@ public class RandomExcuse : ControllerBase
         if (string.IsNullOrWhiteSpace(excuse))
             return BadRequest("Requires valid excuse!");
 
-        System.IO.File.AppendAllText(excusesFile, excuse.Trim() + Environment.NewLine);
+        System.IO.File.AppendAllText(excusesPTFile, excuse.Trim() + Environment.NewLine);
         return Ok(excuse);
     }
 
@@ -46,7 +47,7 @@ public class RandomExcuse : ControllerBase
     [Produces("application/json")]
     public IActionResult GetList()
     {
-        string[] excuses = System.IO.File.ReadAllLines(excusesFile);
+        string[] excuses = System.IO.File.ReadAllLines(excusesPTFile);
         return Ok(new JsonResult(excuses));
     }
 

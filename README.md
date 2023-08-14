@@ -5,6 +5,8 @@ inspired by some colleagues confined at home
 
 https://dailyexcuses.azurewebsites.net
 
+The english source is AI Generated.
+
 # Azure deployment center
 
 - Configured in azure portal with Github repo 
