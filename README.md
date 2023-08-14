@@ -1,11 +1,12 @@
 # DailyExcuses
 WS for daily excuses (portuguese)
 
-inspired by some colleagues confined at home
-
+for portuguese, was inspired by some colleagues confined at home
 https://dailyexcuses.azurewebsites.net
 
+- 14/08/2023
 The english source is AI Generated.
+The polish source is AI Generated.
 
 # Azure deployment center
 

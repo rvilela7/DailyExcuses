@@ -10,6 +10,7 @@ public class RandomExcuse : ControllerBase
 {
     private const string excusesENFile = "data/excusesEN.txt";
     private const string excusesPTFile = "data/excusesPT.txt";
+    private const string excusesPLFile = "data/excusesPL.txt";
     private readonly ILogger<RandomExcuse> _logger;
 
     public RandomExcuse(ILogger<RandomExcuse> logger)
@@ -42,8 +43,14 @@ public class RandomExcuse : ControllerBase
     /// </summary>
     [HttpGet("/escusa")]
     public string escusa() => GetQuote("en");
-    
 
+    /// <summary>
+    /// Same as /quote?lang=pl
+    /// </summary>
+    [HttpGet("/wymowka")]
+    [HttpGet("/wymówka")]
+    public string wymowka() => GetQuote("pl");  
+    
     [HttpPost("/new")]
     [Obsolete("This method is obsolete.")]
     public IActionResult InsertNew([FromBody] string excuse)
@@ -78,6 +85,7 @@ public class RandomExcuse : ControllerBase
         return lang.ToLower() switch
         {
             "pt" => System.IO.File.ReadAllLines(excusesPTFile),
+            "pl" => System.IO.File.ReadAllLines(excusesPLFile),
             _ => System.IO.File.ReadAllLines(excusesENFile),
         };
     }
