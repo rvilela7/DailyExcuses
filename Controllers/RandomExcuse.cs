@@ -23,14 +23,26 @@ public class RandomExcuse : ControllerBase
     /// <param name="lang">Language code: 'en' for English, 'pt' for Portuguese.</param>
     /// <returns>Random excuse</returns>
     [HttpGet("/quote")]
-    [HttpGet("/excuse")]
-    public string GetQuote(string? lang)
+       public string GetQuote(string? lang)
     {
         string[] excuses = getExcuses(lang ?? "en");
         Random rnd = new Random();
         int i = rnd.Next(excuses.Count());
         return excuses[i];
     }
+
+    /// <summary>
+    /// Same as /quote?lang=en
+    /// </summary>
+    [HttpGet("/excuse")]
+    public string excuse() => GetQuote("en");
+    
+    /// <summary>
+    /// Same as /quote?lang=pt
+    /// </summary>
+    [HttpGet("/escusa")]
+    public string escusa() => GetQuote("en");
+    
 
     [HttpPost("/new")]
     [Obsolete("This method is obsolete.")]
@@ -63,7 +75,7 @@ public class RandomExcuse : ControllerBase
 
     private string[] getExcuses(string lang)
     {
-        return lang switch
+        return lang.ToLower() switch
         {
             "pt" => System.IO.File.ReadAllLines(excusesPTFile),
             _ => System.IO.File.ReadAllLines(excusesENFile),
