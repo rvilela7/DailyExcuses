@@ -55,7 +55,7 @@ public class RandomExcuse : ControllerBase
     {
         switch (lang)
         {
-            case "en":
+            case "pt":
                 return System.IO.File.ReadAllLines(excusesPTFile);
             default:
                 return System.IO.File.ReadAllLines(excusesENFile);
